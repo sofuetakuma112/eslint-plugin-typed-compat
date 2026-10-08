@@ -32,6 +32,17 @@ type Report = {
   endColumn: number;
 };
 
+export function toReport(message: Linter.LintMessage, lineOffset = 0): Report {
+  return {
+    key: /^"([^"]+)"/.exec(message.message)?.[1] ?? message.message,
+    message: message.message,
+    line: message.line - lineOffset,
+    column: message.column,
+    endLine: (message.endLine ?? message.line) - lineOffset,
+    endColumn: message.endColumn ?? message.column,
+  };
+}
+
 export async function lint(
   code: string,
   options: Record<string, unknown>,
@@ -39,18 +50,11 @@ export async function lint(
 ): Promise<Report[]> {
   const header = `/* eslint ${ruleId}: ["error", ${JSON.stringify(options)}] */\n`;
   const [result] = await eslint.lintText(header + code, { filePath: path.join(fixture, file) });
-  return (result?.messages ?? []).map((message: Linter.LintMessage) => {
+  return (result?.messages ?? []).map((message) => {
     if (message.fatal === true) {
       throw new Error(message.message);
     }
-    return {
-      key: /^"([^"]+)"/.exec(message.message)?.[1] ?? message.message,
-      message: message.message,
-      line: message.line - 1,
-      column: message.column,
-      endLine: (message.endLine ?? message.line) - 1,
-      endColumn: message.endColumn ?? message.column,
-    };
+    return toReport(message, 1);
   });
 }
 
