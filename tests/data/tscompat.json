@@ -1,0 +1,848 @@
+[
+ {
+  "id": "V000",
+  "kind": "valid",
+  "code": "const s = new Set(); s.intersection();",
+  "browserslist": [
+   "chrome 122"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V001",
+  "kind": "valid",
+  "code": "const a = [1,2,3]; a.at(1);",
+  "browserslist": [
+   "chrome >= 123"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V002",
+  "kind": "valid",
+  "code": "Promise.allSettled()",
+  "browserslist": [
+   "defaults"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V003",
+  "kind": "valid",
+  "code": "new ServiceWorker()",
+  "browserslist": [
+   "defaults"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V004",
+  "kind": "valid",
+  "code": "new IntersectionObserver(() => {}, {})",
+  "browserslist": [
+   "defaults"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V005",
+  "kind": "valid",
+  "code": "Array.from()",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V006",
+  "kind": "valid",
+  "code": "if (fetch) {\n          fetch()\n        }",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V007",
+  "kind": "valid",
+  "code": "if (Array.prototype.flat) {\n          new Array.flat()\n        }",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V008",
+  "kind": "valid",
+  "code": "if (fetch && otherConditions) {\n          fetch()\n        }",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V009",
+  "kind": "valid",
+  "code": "if (window.fetch) {\n          fetch()\n        }",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V010",
+  "kind": "valid",
+  "code": "if ('fetch' in window) {\n          fetch()\n        }",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V011",
+  "kind": "valid",
+  "code": "window",
+  "browserslist": [
+   "ExplorerMobile 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V012",
+  "kind": "valid",
+  "code": "document.fonts()",
+  "browserslist": [
+   "edge 79"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V013",
+  "kind": "valid",
+  "code": "Promise.resolve()",
+  "browserslist": [
+   "node 10"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V014",
+  "kind": "valid",
+  "code": "document.documentElement()",
+  "browserslist": [
+   "Safari 11",
+   "Opera 57",
+   "Edge 17"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V015",
+  "kind": "valid",
+  "code": "document.getElementsByTagName()",
+  "browserslist": [
+   "Safari 11",
+   "Opera 57",
+   "Edge 17"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V016",
+  "kind": "valid",
+  "code": "Promise.resolve(\"foo\")",
+  "browserslist": [
+   "ie 8"
+  ],
+  "expected": [
+   "javascript.builtins.Promise"
+  ],
+  "difference": "Promise is not supported in IE 8. tscompat does not map browserslist ie to MDN data."
+ },
+ {
+  "id": "V017",
+  "kind": "valid",
+  "code": "history.back()",
+  "browserslist": [
+   "Safari 11",
+   "Opera 57",
+   "Edge 17"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V018",
+  "kind": "valid",
+  "code": "document.querySelector()",
+  "browserslist": [
+   "Safari 11",
+   "Opera 57",
+   "Edge 17"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V019",
+  "kind": "valid",
+  "code": "new ServiceWorker()",
+  "browserslist": [
+   "chrome 57",
+   "firefox 50"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V020",
+  "kind": "valid",
+  "code": "document.currentScript()",
+  "browserslist": [
+   "chrome 57",
+   "firefox 50",
+   "safari 10",
+   "edge 14"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V021",
+  "kind": "valid",
+  "code": "document.querySelector()",
+  "browserslist": [
+   "ChromeAndroid 80"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V022",
+  "kind": "valid",
+  "code": "document.hasFocus()",
+  "browserslist": [
+   "Chrome 34"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V023",
+  "kind": "valid",
+  "code": "new URL()",
+  "browserslist": [
+   "ChromeAndroid 78",
+   "ios 11"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V024",
+  "kind": "valid",
+  "code": "document.currentScript('some')",
+  "browserslist": [
+   "chrome 57",
+   "firefox 50",
+   "safari 10",
+   "edge 14"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V025",
+  "kind": "valid",
+  "code": "WebAssembly.compile()",
+  "browserslist": [
+   "chrome 57"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V026",
+  "kind": "valid",
+  "code": "new IntersectionObserver(() => {}, {});",
+  "browserslist": [
+   "chrome 58"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V027",
+  "kind": "valid",
+  "code": "new URL('http://example')",
+  "browserslist": [
+   "chrome 32",
+   "safari 7.1",
+   "firefox 26"
+  ],
+  "expected": []
+ },
+ {
+  "id": "V028",
+  "kind": "valid",
+  "code": "new URLSearchParams()",
+  "browserslist": [
+   "chrome 49",
+   "safari 10.1",
+   "firefox 44"
+  ],
+  "expected": []
+ },
+ {
+  "id": "I029",
+  "kind": "invalid",
+  "code": "const s = new Set(); s.intersection();",
+  "browserslist": [
+   "chrome 121"
+  ],
+  "expected": [
+   "javascript.builtins.Set.intersection"
+  ]
+ },
+ {
+  "id": "I030",
+  "kind": "invalid",
+  "code": "const a = [1,2,3]; a.at(1);",
+  "browserslist": [
+   "chrome >= 70",
+   "firefox >= 80"
+  ],
+  "expected": [
+   "javascript.builtins.Array.at"
+  ]
+ },
+ {
+  "id": "I031",
+  "kind": "invalid",
+  "code": "Promise.allSettled()",
+  "browserslist": [
+   "chrome >= 72",
+   "firefox >= 72",
+   "safari >= 12",
+   "edge >= 79"
+  ],
+  "expected": [
+   "javascript.builtins.Promise.allSettled"
+  ]
+ },
+ {
+  "id": "I032",
+  "kind": "invalid",
+  "code": "new ServiceWorker();",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "api.ServiceWorker"
+  ]
+ },
+ {
+  "id": "I033",
+  "kind": "invalid",
+  "code": "new IntersectionObserver(() => {}, {})",
+  "browserslist": [
+   "chrome 49"
+  ],
+  "expected": [
+   "api.IntersectionObserver.IntersectionObserver"
+  ]
+ },
+ {
+  "id": "I034",
+  "kind": "invalid",
+  "code": "window?.fetch?.('example.com')",
+  "browserslist": [
+   "chrome 39"
+  ],
+  "expected": [],
+  "difference": "fetch is called through optional chaining, so the call is skipped where fetch is missing."
+ },
+ {
+  "id": "I035",
+  "kind": "invalid",
+  "code": "navigator.hardwareConcurrency;\n        navigator.serviceWorker;\n        new SharedWorker();",
+  "browserslist": [
+   "chrome 4"
+  ],
+  "expected": [
+   "api.Navigator.hardwareConcurrency",
+   "api.Navigator.serviceWorker",
+   "api.SharedWorker.SharedWorker"
+  ]
+ },
+ {
+  "id": "I036",
+  "kind": "invalid",
+  "code": "// it should throw an error here, but it doesn't\n        const event = new CustomEvent(\"cat\", {\n          detail: {\n            hazcheeseburger: true\n          }\n        });\n        window.dispatchEvent(event);",
+  "browserslist": [
+   "chrome 4"
+  ],
+  "expected": [
+   "api.CustomEvent.CustomEvent"
+  ]
+ },
+ {
+  "id": "I037",
+  "kind": "invalid",
+  "code": "Array.from()",
+  "browserslist": [
+   "chrome 44"
+  ],
+  "expected": [
+   "javascript.builtins.Array.from"
+  ]
+ },
+ {
+  "id": "I038",
+  "kind": "invalid",
+  "code": "Promise.allSettled()",
+  "browserslist": [
+   "Chrome >= 72",
+   "Firefox >= 72",
+   "Safari >= 12",
+   "Edge >= 79"
+  ],
+  "expected": [
+   "javascript.builtins.Promise.allSettled"
+  ]
+ },
+ {
+  "id": "I039",
+  "kind": "invalid",
+  "code": "location.origin",
+  "browserslist": [
+   "chrome 7"
+  ],
+  "expected": [
+   "api.Location.origin"
+  ]
+ },
+ {
+  "id": "I040",
+  "kind": "invalid",
+  "code": "import { Map } from 'immutable';\n          new Set()",
+  "browserslist": [
+   "Chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Set.Set"
+  ]
+ },
+ {
+  "id": "I041",
+  "kind": "invalid",
+  "code": "new Set()",
+  "browserslist": [
+   "chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Set.Set"
+  ]
+ },
+ {
+  "id": "I042",
+  "kind": "invalid",
+  "code": "new TypedArray()",
+  "browserslist": [
+   "chrome 6"
+  ],
+  "expected": [
+   "javascript.builtins.TypedArray"
+  ]
+ },
+ {
+  "id": "I043",
+  "kind": "invalid",
+  "code": "new Int8Array()",
+  "browserslist": [
+   "chrome 6"
+  ],
+  "expected": [
+   "javascript.builtins.Int8Array.Int8Array"
+  ]
+ },
+ {
+  "id": "I044",
+  "kind": "invalid",
+  "code": "new AnimationEvent",
+  "browserslist": [
+   "chrome 40"
+  ],
+  "expected": [
+   "api.AnimationEvent.AnimationEvent"
+  ]
+ },
+ {
+  "id": "I045",
+  "kind": "invalid",
+  "code": "Object.values({})",
+  "browserslist": [
+   "safari 9"
+  ],
+  "expected": [
+   "javascript.builtins.Object.values"
+  ]
+ },
+ {
+  "id": "I046",
+  "kind": "invalid",
+  "code": "new ServiceWorker()",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "api.ServiceWorker"
+  ]
+ },
+ {
+  "id": "I047",
+  "kind": "invalid",
+  "code": "new IntersectionObserver(() => {}, {});",
+  "browserslist": [
+   "chrome 49"
+  ],
+  "expected": [
+   "api.IntersectionObserver.IntersectionObserver"
+  ]
+ },
+ {
+  "id": "I048",
+  "kind": "invalid",
+  "code": "WebAssembly.compile()",
+  "browserslist": [
+   "Samsung 4",
+   "Safari 10.1",
+   "Opera 12.1",
+   "chrome 23",
+   "iOS 10.3",
+   "ExplorerMobile 10",
+   "chrome 31",
+   "Edge 14",
+   "Blackberry 7",
+   "Baidu 7.12",
+   "UCAndroid 11.8",
+   "QQAndroid 1.2"
+  ],
+  "expected": [
+   "webassembly.api.compile_static"
+  ]
+ },
+ {
+  "id": "I049",
+  "kind": "invalid",
+  "code": "new PaymentRequest(methodData, details, options)",
+  "browserslist": [
+   "chrome 57"
+  ],
+  "expected": [
+   "api.PaymentRequest.PaymentRequest"
+  ]
+ },
+ {
+  "id": "I050",
+  "kind": "invalid",
+  "code": "navigator.serviceWorker",
+  "browserslist": [
+   "safari 10.1"
+  ],
+  "expected": [
+   "api.Navigator.serviceWorker"
+  ]
+ },
+ {
+  "id": "I051",
+  "kind": "invalid",
+  "code": "window.document.fonts()",
+  "browserslist": [
+   "chrome 34"
+  ],
+  "expected": [
+   "api.Document.fonts"
+  ]
+ },
+ {
+  "id": "I052",
+  "kind": "invalid",
+  "code": "new Map().size",
+  "browserslist": [
+   "Chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Map.Map",
+   "javascript.builtins.Map.size"
+  ]
+ },
+ {
+  "id": "I053",
+  "kind": "invalid",
+  "code": "new window.Map().size",
+  "browserslist": [
+   "chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Map.Map",
+   "javascript.builtins.Map.size"
+  ]
+ },
+ {
+  "id": "I054",
+  "kind": "invalid",
+  "code": "const m = new window.Map(); m.size",
+  "browserslist": [
+   "chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Map.Map",
+   "javascript.builtins.Map.size"
+  ]
+ },
+ {
+  "id": "I055",
+  "kind": "invalid",
+  "code": "const m = new window.Map(); m.size()",
+  "browserslist": [
+   "chrome 37"
+  ],
+  "expected": [
+   "javascript.builtins.Map.Map",
+   "javascript.builtins.Map.size"
+  ]
+ },
+ {
+  "id": "I056",
+  "kind": "invalid",
+  "code": "new Array().flat",
+  "browserslist": [
+   "chrome 68"
+  ],
+  "expected": [
+   "javascript.builtins.Array.flat"
+  ]
+ },
+ {
+  "id": "I057",
+  "kind": "invalid",
+  "code": "const a = new Array(); a.flat",
+  "browserslist": [
+   "chrome 68"
+  ],
+  "expected": [
+   "javascript.builtins.Array.flat"
+  ]
+ },
+ {
+  "id": "I058",
+  "kind": "invalid",
+  "code": "const a = new Array(); a.flat()",
+  "browserslist": [
+   "chrome 68"
+  ],
+  "expected": [
+   "javascript.builtins.Array.flat"
+  ]
+ },
+ {
+  "id": "I059",
+  "kind": "invalid",
+  "code": "globalThis.fetch()",
+  "browserslist": [
+   "Chrome 39"
+  ],
+  "expected": [
+   "api.fetch"
+  ]
+ },
+ {
+  "id": "I060",
+  "kind": "invalid",
+  "code": "fetch()",
+  "browserslist": [
+   "chrome 39"
+  ],
+  "expected": [
+   "api.fetch"
+  ]
+ },
+ {
+  "id": "I061",
+  "kind": "invalid",
+  "code": "Promise.resolve()",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "javascript.builtins.Promise"
+  ]
+ },
+ {
+  "id": "I062",
+  "kind": "invalid",
+  "code": "Promise.all()",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "javascript.builtins.Promise"
+  ]
+ },
+ {
+  "id": "I063",
+  "kind": "invalid",
+  "code": "Promise.race()",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "javascript.builtins.Promise"
+  ]
+ },
+ {
+  "id": "I064",
+  "kind": "invalid",
+  "code": "Promise.reject()",
+  "browserslist": [
+   "chrome 31"
+  ],
+  "expected": [
+   "javascript.builtins.Promise"
+  ]
+ },
+ {
+  "id": "I065",
+  "kind": "invalid",
+  "code": "new URL('http://example')",
+  "browserslist": [
+   "chrome 31",
+   "safari 6",
+   "firefox 18"
+  ],
+  "expected": [
+   "api.URL.URL"
+  ]
+ },
+ {
+  "id": "I066",
+  "kind": "invalid",
+  "code": "new URLSearchParams()",
+  "browserslist": [
+   "chrome 48",
+   "safari 10",
+   "firefox 28"
+  ],
+  "expected": [
+   "api.URLSearchParams.URLSearchParams"
+  ]
+ },
+ {
+  "id": "I067",
+  "kind": "invalid",
+  "code": "performance.now()",
+  "browserslist": [
+   "chrome 19"
+  ],
+  "expected": [
+   "api.Performance.now"
+  ]
+ },
+ {
+  "id": "I068",
+  "kind": "invalid",
+  "code": "new ResizeObserver()",
+  "browserslist": [
+   "Chrome 39",
+   "safari 12"
+  ],
+  "expected": [
+   "api.ResizeObserver.ResizeObserver"
+  ]
+ },
+ {
+  "id": "I069",
+  "kind": "invalid",
+  "code": "'foo'.at(5)",
+  "browserslist": [
+   "Chrome 39",
+   "safari 12"
+  ],
+  "expected": [
+   "javascript.builtins.String.at"
+  ]
+ },
+ {
+  "id": "I070",
+  "kind": "invalid",
+  "code": "const a = 'foo'; a.at(5)",
+  "browserslist": [
+   "Chrome 39",
+   "safari 12"
+  ],
+  "expected": [
+   "javascript.builtins.String.at"
+  ]
+ },
+ {
+  "id": "I071",
+  "kind": "invalid",
+  "code": "const a = []; a.at(5)",
+  "browserslist": [
+   "Chrome 39",
+   "safari 12"
+  ],
+  "expected": [
+   "javascript.builtins.Array.at"
+  ]
+ },
+ {
+  "id": "I072",
+  "kind": "invalid",
+  "code": "[].at(5)",
+  "browserslist": [
+   "Chrome 39",
+   "safari 12"
+  ],
+  "expected": [
+   "javascript.builtins.Array.at"
+  ]
+ },
+ {
+  "id": "I073",
+  "kind": "invalid",
+  "code": "Object.entries({}), Object.values({})",
+  "browserslist": [
+   "Android >= 4",
+   "iOS >= 7"
+  ],
+  "expected": [
+   "javascript.builtins.Object.entries",
+   "javascript.builtins.Object.values"
+  ]
+ },
+ {
+  "id": "I074",
+  "kind": "invalid",
+  "code": "window.requestIdleCallback(() => {})",
+  "browserslist": [
+   "safari 12"
+  ],
+  "expected": [
+   "api.Window.requestIdleCallback"
+  ]
+ },
+ {
+  "id": "I075",
+  "kind": "invalid",
+  "code": "window.requestAnimationFrame(() => {})",
+  "browserslist": [
+   "chrome 23"
+  ],
+  "expected": [
+   "api.Window.requestAnimationFrame"
+  ]
+ },
+ {
+  "id": "I076",
+  "kind": "invalid",
+  "code": "const s = [0, 1, 2]; s.values().map((x) => x);",
+  "browserslist": [
+   "chrome 121"
+  ],
+  "expected": [
+   "javascript.builtins.Iterator.map"
+  ]
+ }
+]

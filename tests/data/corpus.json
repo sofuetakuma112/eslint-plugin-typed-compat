@@ -1,0 +1,795 @@
+[
+ {
+  "id": "p01",
+  "api": "AbortSignal.timeout",
+  "pattern": "static",
+  "code": "export const s = AbortSignal.timeout(1000);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p02",
+  "api": "AbortSignal.any",
+  "pattern": "static",
+  "code": "const a = new AbortController();\nexport const s = AbortSignal.any([a.signal]);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p03",
+  "api": "URL.canParse",
+  "pattern": "static",
+  "code": "export const ok = (u: string) => URL.canParse(u);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p04",
+  "api": "URL.parse",
+  "pattern": "static",
+  "code": "export const p = (u: string) => URL.parse(u);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p05",
+  "api": "Response.json",
+  "pattern": "static",
+  "code": "export const r = Response.json({ a: 1 });",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p06",
+  "api": "requestIdleCallback",
+  "pattern": "global-call",
+  "code": "requestIdleCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p07",
+  "api": "navigator.wakeLock.request",
+  "pattern": "global-chain",
+  "code": "export const w = navigator.wakeLock.request('screen');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p08",
+  "api": "document.startViewTransition",
+  "pattern": "global-chain",
+  "code": "document.startViewTransition(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p09",
+  "api": "Element.checkVisibility",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: Element) => el.checkVisibility();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p10",
+  "api": "HTMLElement.showPopover",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: HTMLElement) => { el.showPopover(); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p11",
+  "api": "HTMLElement.togglePopover",
+  "pattern": "global-chain",
+  "code": "document.body.togglePopover();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p12",
+  "api": "CompressionStream",
+  "pattern": "new-global",
+  "code": "export const c = new CompressionStream('gzip');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p13",
+  "api": "navigator.userActivation",
+  "pattern": "global-chain",
+  "code": "export const a = navigator.userActivation.isActive;",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p14",
+  "api": "Element.requestFullscreen",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.requestFullscreen();",
+  "expectation": "unsupported",
+  "note": "Safari on iOS 15.6 only has the prefixed, iPad-only webkitRequestFullscreen."
+ },
+ {
+  "id": "p15",
+  "api": "CSS.highlights/Highlight",
+  "pattern": "static+new",
+  "code": "export const f = (r: Range) => { CSS.highlights.set('x', new Highlight(r)); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p16",
+  "api": "scheduler.postTask",
+  "pattern": "global-chain",
+  "code": "// @ts-ignore not in lib.dom\nexport const t = scheduler.postTask(() => 1);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p17",
+  "api": "EyeDropper",
+  "pattern": "new-global",
+  "code": "// @ts-ignore not in lib.dom\nexport const e = new EyeDropper();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p18",
+  "api": "CloseWatcher",
+  "pattern": "new-global",
+  "code": "// @ts-ignore not in lib.dom\nexport const w = new CloseWatcher();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p19",
+  "api": "navigation.navigate",
+  "pattern": "global-chain",
+  "code": "// @ts-ignore maybe not in lib.dom\nnavigation.navigate('/');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p20",
+  "api": "ManagedMediaSource",
+  "pattern": "new-global",
+  "code": "// @ts-ignore maybe not in lib.dom\nexport const m = new ManagedMediaSource();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p21",
+  "api": "MediaSource (iPhone)",
+  "pattern": "new-global",
+  "code": "export const m = new MediaSource();",
+  "expectation": "partial"
+ },
+ {
+  "id": "p22",
+  "api": "scrollend event",
+  "pattern": "event-string",
+  "code": "export const f = (el: HTMLElement) => { el.addEventListener('scrollend', () => undefined); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p23",
+  "api": "onscrollend",
+  "pattern": "event-handler-prop",
+  "code": "export const f = (el: HTMLElement) => { el.onscrollend = () => undefined; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p24",
+  "api": "URLSearchParams.size",
+  "pattern": "instance-typed",
+  "code": "export const n = (q: string) => new URLSearchParams(q).size;",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p25",
+  "api": "HTMLVideoElement.requestVideoFrameCallback",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.requestVideoFrameCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p26",
+  "api": "HTMLVideoElement.requestPictureInPicture",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.requestPictureInPicture();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p27",
+  "api": "navigator.share",
+  "pattern": "global-chain",
+  "code": "export const s = navigator.share({ url: '/' });",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p28",
+  "api": "documentPictureInPicture",
+  "pattern": "window-chain",
+  "code": "// @ts-ignore maybe not in lib.dom\nexport const w = window.documentPictureInPicture.requestWindow();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p29",
+  "api": "Element.setHTMLUnsafe",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: Element) => { el.setHTMLUnsafe('<b>x</b>'); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "p30",
+  "api": "HTMLMediaElement.setSinkId",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLAudioElement) => v.setSinkId('x');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "n01",
+  "api": "fetch",
+  "pattern": "global-call",
+  "code": "export const r = fetch('/');",
+  "expectation": "supported"
+ },
+ {
+  "id": "n02",
+  "api": "AbortController",
+  "pattern": "new-global",
+  "code": "export const a = new AbortController();",
+  "expectation": "supported"
+ },
+ {
+  "id": "n03",
+  "api": "ResizeObserver",
+  "pattern": "new-global",
+  "code": "export const o = new ResizeObserver(() => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "n04",
+  "api": "IntersectionObserver",
+  "pattern": "new-global",
+  "code": "export const o = new IntersectionObserver(() => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "n05",
+  "api": "structuredClone",
+  "pattern": "global-call",
+  "code": "export const c = structuredClone({ a: 1 });",
+  "expectation": "supported"
+ },
+ {
+  "id": "n06",
+  "api": "HTMLDialogElement.showModal",
+  "pattern": "instance-typed",
+  "code": "export const f = (d: HTMLDialogElement) => { d.showModal(); };",
+  "expectation": "supported"
+ },
+ {
+  "id": "n07",
+  "api": "HTMLDialogElement.showModal",
+  "pattern": "optional-call-on-query",
+  "code": "document.querySelector('dialog')?.showModal();",
+  "expectation": "supported"
+ },
+ {
+  "id": "n08",
+  "api": "Element.replaceChildren",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: Element) => { el.replaceChildren(); };",
+  "expectation": "supported"
+ },
+ {
+  "id": "n09",
+  "api": "Element.toggleAttribute",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: Element) => el.toggleAttribute('hidden');",
+  "expectation": "supported"
+ },
+ {
+  "id": "n10",
+  "api": "CSS.supports",
+  "pattern": "static",
+  "code": "export const s = CSS.supports('display', 'grid');",
+  "expectation": "supported"
+ },
+ {
+  "id": "n11",
+  "api": "matchMedia",
+  "pattern": "global-call",
+  "code": "export const m = matchMedia('(prefers-color-scheme: dark)');",
+  "expectation": "supported"
+ },
+ {
+  "id": "n12",
+  "api": "HTMLElement.inert",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: HTMLElement) => { el.inert = true; };",
+  "expectation": "supported"
+ },
+ {
+  "id": "n13",
+  "api": "navigator.mediaSession",
+  "pattern": "global-chain",
+  "code": "export const ms = navigator.mediaSession;",
+  "expectation": "supported"
+ },
+ {
+  "id": "n14",
+  "api": "queueMicrotask",
+  "pattern": "global-call",
+  "code": "queueMicrotask(() => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "n15",
+  "api": "click event",
+  "pattern": "event-string",
+  "code": "export const f = (el: HTMLElement) => { el.addEventListener('click', () => undefined); };",
+  "expectation": "supported"
+ },
+ {
+  "id": "n16",
+  "api": "mediaCapabilities.decodingInfo",
+  "pattern": "global-chain",
+  "code": "export const d = navigator.mediaCapabilities.decodingInfo({ type: 'media-source', video: { contentType: 'video/mp4', width: 1, height: 1, bitrate: 1, framerate: 1 } });",
+  "expectation": "supported"
+ },
+ {
+  "id": "n17",
+  "api": "HTMLMediaElement.play",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.play();",
+  "expectation": "supported"
+ },
+ {
+  "id": "n18",
+  "api": "requestAnimationFrame",
+  "pattern": "window-chain",
+  "code": "window.requestAnimationFrame(() => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "n19",
+  "api": "Map.size (name clash: size)",
+  "pattern": "fp-risk",
+  "code": "const cache = new Map<string, number>();\nexport const s = cache.size;",
+  "expectation": "supported"
+ },
+ {
+  "id": "n20",
+  "api": "user object .showPopover()",
+  "pattern": "fp-risk",
+  "code": "const ui = { showPopover(): void { return undefined; } };\nui.showPopover();",
+  "expectation": "supported"
+ },
+ {
+  "id": "n21",
+  "api": "JSON.parse (name clash: parse)",
+  "pattern": "fp-risk",
+  "code": "export const v: unknown = JSON.parse('1');",
+  "expectation": "supported"
+ },
+ {
+  "id": "n22",
+  "api": "local function named requestIdleCallback",
+  "pattern": "fp-risk",
+  "code": "function requestIdleCallback(cb: () => void): void { cb(); }\nrequestIdleCallback(() => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "h01",
+  "api": "Clipboard.write",
+  "pattern": "global-chain",
+  "code": "export const w = navigator.clipboard.write([]);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h02",
+  "api": "ClipboardItem",
+  "pattern": "new-global",
+  "code": "export const c = new ClipboardItem({});",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h03",
+  "api": "transferControlToOffscreen",
+  "pattern": "instance-typed",
+  "code": "export const f = (c: HTMLCanvasElement) => c.transferControlToOffscreen();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h04",
+  "api": "OffscreenCanvas",
+  "pattern": "new-global",
+  "code": "export const c = new OffscreenCanvas(1, 1);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h05",
+  "api": "ariaLabel (ARIAMixin)",
+  "pattern": "instance-setter-mixin",
+  "code": "export const f = (el: HTMLElement) => { el.ariaLabel = 'x'; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h06",
+  "api": "popover attribute prop",
+  "pattern": "instance-setter",
+  "code": "export const f = (el: HTMLElement) => { el.popover = 'auto'; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h07",
+  "api": "adoptedStyleSheets",
+  "pattern": "global-chain",
+  "code": "export const s = document.adoptedStyleSheets;",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h08",
+  "api": "new CSSStyleSheet()",
+  "pattern": "new-global",
+  "code": "export const s = new CSSStyleSheet();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h09",
+  "api": "ReadableStream.from",
+  "pattern": "static",
+  "code": "export const r = ReadableStream.from([1]);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h10",
+  "api": "Element.moveBefore",
+  "pattern": "instance-typed",
+  "code": "export const f = (a: Element, b: Element) => { a.moveBefore(b, null); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h11",
+  "api": "Blob.bytes",
+  "pattern": "instance-typed",
+  "code": "export const f = (b: Blob) => b.bytes();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h12",
+  "api": "Response.bytes",
+  "pattern": "instance-via-await",
+  "code": "export const f = async () => (await fetch('/')).bytes();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h13",
+  "api": "VideoDecoder",
+  "pattern": "new-global",
+  "code": "export const d = new VideoDecoder({ output: () => undefined, error: () => undefined });",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h14",
+  "api": "caretPositionFromPoint",
+  "pattern": "global-chain",
+  "code": "export const p = document.caretPositionFromPoint(0, 0);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h15",
+  "api": "HTMLInputElement.showPicker",
+  "pattern": "instance-typed",
+  "code": "export const f = (i: HTMLInputElement) => { i.showPicker(); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h16",
+  "api": "beforematch event",
+  "pattern": "event-string",
+  "code": "export const f = (el: HTMLElement) => { el.addEventListener('beforematch', () => undefined); };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h17",
+  "api": "IDBFactory.databases",
+  "pattern": "global-chain",
+  "code": "export const d = indexedDB.databases();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h18",
+  "api": "HTMLMediaElement.captureStream",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.captureStream();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h19",
+  "api": "BroadcastChannel",
+  "pattern": "new-global",
+  "code": "export const b = new BroadcastChannel('x');",
+  "expectation": "supported"
+ },
+ {
+  "id": "h20",
+  "api": "crypto.randomUUID",
+  "pattern": "global-chain",
+  "code": "export const u = crypto.randomUUID();",
+  "expectation": "supported"
+ },
+ {
+  "id": "h21",
+  "api": "navigator.locks.request",
+  "pattern": "global-chain",
+  "code": "export const l = navigator.locks.request('x', () => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "h22",
+  "api": "AbortSignal.throwIfAborted",
+  "pattern": "instance-typed",
+  "code": "export const f = (s: AbortSignal) => { s.throwIfAborted(); };",
+  "expectation": "supported"
+ },
+ {
+  "id": "h23",
+  "api": "visibilitychange event",
+  "pattern": "event-string-document",
+  "code": "document.addEventListener('visibilitychange', () => undefined);",
+  "expectation": "supported"
+ },
+ {
+  "id": "h24",
+  "api": "TextDecoderStream",
+  "pattern": "new-global",
+  "code": "export const t = new TextDecoderStream();",
+  "expectation": "supported"
+ },
+ {
+  "id": "h25",
+  "api": "getVideoPlaybackQuality",
+  "pattern": "instance-typed",
+  "code": "export const f = (v: HTMLVideoElement) => v.getVideoPlaybackQuality();",
+  "expectation": "supported"
+ },
+ {
+  "id": "h26",
+  "api": "Element.animate",
+  "pattern": "instance-typed",
+  "code": "export const f = (el: Element) => el.animate([], 1);",
+  "expectation": "supported"
+ },
+ {
+  "id": "h27",
+  "api": "screen.orientation.lock",
+  "pattern": "global-chain",
+  "code": "export const l = screen.orientation.lock('landscape');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "h28",
+  "api": "MediaCapabilities via alias",
+  "pattern": "alias-global",
+  "code": "const n = window.navigator;\nexport const m = n.mediaCapabilities;",
+  "expectation": "supported"
+ },
+ {
+  "id": "h29",
+  "api": "HTMLVideoElement.disablePictureInPicture",
+  "pattern": "instance-setter",
+  "code": "export const f = (v: HTMLVideoElement) => { v.disablePictureInPicture = true; };",
+  "expectation": "partial"
+ },
+ {
+  "id": "h30",
+  "api": "PerformanceObserver.supportedEntryTypes",
+  "pattern": "static",
+  "code": "export const t = PerformanceObserver.supportedEntryTypes;",
+  "expectation": "supported"
+ },
+ {
+  "id": "v01",
+  "api": "requestIdleCallback",
+  "pattern": "window.-prefix",
+  "code": "window.requestIdleCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v02",
+  "api": "requestIdleCallback",
+  "pattern": "globalThis.-prefix",
+  "code": "globalThis.requestIdleCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v03",
+  "api": "requestVideoFrameCallback",
+  "pattern": "instance-via-querySelector!",
+  "code": "document.querySelector('video')!.requestVideoFrameCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v04",
+  "api": "requestPictureInPicture",
+  "pattern": "optional-call-on-query",
+  "code": "export const p = document.querySelector('video')?.requestPictureInPicture();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v05",
+  "api": "requestPictureInPicture",
+  "pattern": "instance-via-createElement",
+  "code": "const v = document.createElement('video');\nexport const p = v.requestPictureInPicture();",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v06",
+  "api": "requestVideoFrameCallback",
+  "pattern": "instance-via-return-type",
+  "code": "declare function getVideo(): HTMLVideoElement;\ngetVideo().requestVideoFrameCallback(() => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v07",
+  "api": "AbortSignal.timeout",
+  "pattern": "destructuring",
+  "code": "const { timeout } = AbortSignal;\nexport const s = timeout(1000);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v08",
+  "api": "AbortSignal.timeout",
+  "pattern": "computed-access",
+  "code": "export const s = AbortSignal['timeout'](1000);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v09",
+  "api": "AbortSignal.timeout",
+  "pattern": "alias-static",
+  "code": "const S = AbortSignal;\nexport const s = S.timeout(1000);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v10",
+  "api": "navigator.wakeLock",
+  "pattern": "alias-global",
+  "code": "const nav = navigator;\nexport const w = nav.wakeLock.request('screen');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v11",
+  "api": "requestIdleCallback",
+  "pattern": "inside-unrelated-if",
+  "code": "export const f = (b: boolean) => { if (b) { requestIdleCallback(() => undefined); } };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v12",
+  "api": "scrollend event",
+  "pattern": "event-string-document",
+  "code": "document.addEventListener('scrollend', () => undefined);",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v13",
+  "api": "URL.parse",
+  "pattern": "window-static",
+  "code": "export const p = window.URL.parse('https://a/');",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "v14",
+  "api": "checkVisibility",
+  "pattern": "instance-on-this-property",
+  "code": "export class C { constructor(private readonly el: HTMLElement) {} visible(): boolean { return this.el.checkVisibility(); } }",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "g01",
+  "api": "AbortSignal.timeout",
+  "pattern": "guard: 'x' in Y",
+  "code": "export const s = (): AbortSignal | undefined => { if ('timeout' in AbortSignal) { return AbortSignal.timeout(1000); } return undefined; };",
+  "expectation": "guarded"
+ },
+ {
+  "id": "g02",
+  "api": "requestIdleCallback",
+  "pattern": "guard: typeof",
+  "code": "if (typeof requestIdleCallback === 'function') { requestIdleCallback(() => undefined); }",
+  "expectation": "guarded"
+ },
+ {
+  "id": "g03",
+  "api": "requestIdleCallback",
+  "pattern": "guard: ternary in",
+  "code": "export const id = 'requestIdleCallback' in window ? requestIdleCallback(() => undefined) : setTimeout(() => undefined, 1);",
+  "expectation": "guarded"
+ },
+ {
+  "id": "g04",
+  "api": "navigator.wakeLock",
+  "pattern": "guard: optional chain on API object",
+  "code": "// @ts-ignore wakeLock typed non-optional\nexport const w = navigator.wakeLock?.request('screen');",
+  "expectation": "guarded"
+ },
+ {
+  "id": "g05",
+  "api": "requestVideoFrameCallback",
+  "pattern": "guard: 'x' in instance",
+  "code": "export const f = (v: HTMLVideoElement) => { if ('requestVideoFrameCallback' in v) { v.requestVideoFrameCallback(() => undefined); } };",
+  "expectation": "guarded"
+ },
+ {
+  "id": "g06",
+  "api": "URL.canParse",
+  "pattern": "guard: && short-circuit",
+  "code": "export const ok = (u: string) => typeof URL.canParse === 'function' && URL.canParse(u);",
+  "expectation": "guarded"
+ },
+ {
+  "id": "a01",
+  "api": "if_test",
+  "pattern": "edge",
+  "code": "export const a = (input: string) => { if (URL.parse(input) !== null) { return 1; } return 0; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "a02",
+  "api": "name_collision",
+  "pattern": "edge",
+  "code": "export const a = (map: Map<string, string>) => { if (map.size > 0) { return new URLSearchParams(\"a=1\").size; } return 0; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "a03",
+  "api": "control_size",
+  "pattern": "edge",
+  "code": "export const a = () => new URLSearchParams(\"a=1\").size;",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "a04",
+  "api": "string_arg_subfeature",
+  "pattern": "edge",
+  "code": "export const a = () => navigator.mediaSession.setActionHandler(\"enterpictureinpicture\", null);",
+  "expectation": "partial",
+  "note": "Argument values such as enterpictureinpicture are not checked. Firefox Android implements setActionHandler only partially."
+ },
+ {
+  "id": "a05",
+  "api": "any",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => { const u: any = URL; return u.parse(x); };",
+  "expectation": "untyped"
+ },
+ {
+  "id": "a06",
+  "api": "guard_in",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => (\"parse\" in URL ? URL.parse(x) : null);",
+  "expectation": "guarded"
+ },
+ {
+  "id": "a07",
+  "api": "guard_typeof",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => { if (typeof URL.parse === \"function\") { return URL.parse(x); } return null; };",
+  "expectation": "guarded"
+ },
+ {
+  "id": "a08",
+  "api": "wrong_guard",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => { if (\"canParse\" in URL) { return URL.parse(x); } return null; };",
+  "expectation": "unsupported"
+ },
+ {
+  "id": "a09",
+  "api": "guard_via_variable",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => { const canUse = \"parse\" in URL; if (canUse) { return URL.parse(x); } return null; };",
+  "expectation": "guarded"
+ },
+ {
+  "id": "a10",
+  "api": "early_return_guard",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => { if (!(\"parse\" in URL)) { return null; } return URL.parse(x); };",
+  "expectation": "guarded"
+ },
+ {
+  "id": "a11",
+  "api": "control_parse",
+  "pattern": "edge",
+  "code": "export const a = (x: string) => URL.parse(x);",
+  "expectation": "unsupported"
+ }
+]
