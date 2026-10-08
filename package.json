@@ -1,0 +1,63 @@
+{
+  "name": "eslint-plugin-typed-compat",
+  "version": "0.1.0",
+  "description": "Type-aware ESLint rule that reports Web and JavaScript APIs your browserslist targets do not support",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "browserslist",
+    "compatibility",
+    "browser-compat-data",
+    "mdn",
+    "typescript",
+    "baseline"
+  ],
+  "homepage": "https://github.com/sofuetakuma112/eslint-plugin-typed-compat#readme",
+  "bugs": {
+    "url": "https://github.com/sofuetakuma112/eslint-plugin-typed-compat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofuetakuma112/eslint-plugin-typed-compat.git"
+  },
+  "license": "MIT",
+  "author": "Sofue Takuma",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "format": "oxfmt src tests/*.ts",
+    "format:check": "oxfmt --check src tests/*.ts",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@mdn/browser-compat-data": "^8.1.4",
+    "@typescript-eslint/utils": "^8.71.0",
+    "browserslist": "^4.29.3"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0 || ^10.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@koddsson/eslint-plugin-tscompat": "0.2.0",
+    "@tsconfig/strictest": "^2.0.8",
+    "@types/node": "^24.9.1",
+    "eslint": "^10.12.0",
+    "oxfmt": "^0.71.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^4.1.11"
+  }
+}
