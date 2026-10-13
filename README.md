@@ -1,5 +1,7 @@
 # eslint-plugin-typed-compat
 
+English | [日本語](https://github.com/sofuetakuma112/eslint-plugin-typed-compat/blob/main/README.ja.md)
+
 A type-aware ESLint rule that reports Web and JavaScript APIs your browserslist targets do not support.
 
 It resolves each property access, global, constructor and event listener through the TypeScript type checker, finds the matching entry in [@mdn/browser-compat-data](https://github.com/mdn/browser-compat-data), and compares it with the versions your browserslist query resolves to.
